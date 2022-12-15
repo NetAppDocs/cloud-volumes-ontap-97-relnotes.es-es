@@ -1,0 +1,206 @@
+---
+sidebar: sidebar 
+permalink: reference-configs-aws.html 
+keywords: ec2, instance, type, explore, standard, premium, byol, capacity, maximum, virtual machine, Cloud Volumes ONTAP, supported, configurations, sizes, disks 
+summary: Se admiten varias configuraciones de Cloud Volumes ONTAP en AWS. 
+---
+= Configuraciones compatibles en AWS
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Se admiten varias configuraciones de Cloud Volumes ONTAP en AWS.
+
+
+
+== Configuraciones admitidas por licencia
+
+Cloud Volumes ONTAP está disponible en AWS como un único sistema de nodo y como un par de nodos de alta disponibilidad para tolerancia a fallos y operaciones no disruptivas.
+
+No se admite la actualización de un sistema de un solo nodo a un par de alta disponibilidad. Si desea cambiar entre un sistema de un solo nodo y un par de alta disponibilidad, debe poner en marcha un sistema nuevo y replicar los datos desde el sistema existente al nuevo sistema.
+
+[cols="h,d,d,d,d,d,d"]
+|===
+|  | Freemium | PAYGO Explora | Norma PAYGO | PAYGO Premium | Licencia basada en nodos | Licencia basada en capacidad 
+
+
+| Capacidad máxima del sistema (discos + almacenamiento de objetos) | 500 GIB | 2 TIB | 10 TIB | 368 TIB hacia 1 | 368 TIB por licencia hacia 1 | 2 PIB hacia 1 
+
+
+| Tipos de instancia EC2 admitidos: Hacia 2  a| 
+* c4.4xgrande
+* c4.8x grande
+* c5.9xlarge
+* c5.18xlarge
+* c5d.4xgrande hacia 3
+* c5d.9xlarge hacia 3
+* c5d.18xlarge hacia 3
+* c5n.9xlarge hacia 4
+* c5n.18xlarge hacia 4
+* m4.xlarge
+* m4.2xgrande
+* m4.4xgrande
+* m5.xlarge
+* m5,2xgrande
+* m5.4xgrande
+* m5.16xlarge
+* m5d.8xgrande hacia 3
+* m5d.12xlarge hacia 3
+* r4.xlarge
+* r4.2xgrande
+* r5.xlarge
+* r5,2xgrande
+* r5.8xlarge
+* r5.12xlarge hacia arriba 5
+* r5d.2xgrande hacia 3
+
+ a| 
+* m4.xlarge
+* m5.xlarge
+
+ a| 
+* m4.2xgrande
+* m5,2xgrande
+* r4.xlarge
+* r5.xlarge
+
+ a| 
+* c4.4xgrande
+* c4.8x grande
+* c5.9xlarge
+* c5.18xlarge
+* c5d.4xgrande hacia 3
+* c5d.9xlarge hacia 3
+* c5d.18xlarge hacia 3
+* c5n.9xlarge hacia 4
+* c5n.18xlarge hacia 4
+* m4.4xgrande
+* m5.4xgrande
+* m5.16xlarge
+* m5d.8xgrande hacia 3
+* m5d.12xlarge hacia 3
+* r4.2xgrande
+* r5,2xgrande
+* r5.8xlarge
+* r5.12xlarge hacia arriba 5
+* r5d.2xgrande hacia 3
+
+ a| 
+* c4.4xgrande
+* c4.8x grande
+* c5.9xlarge
+* c5.18xlarge
+* c5d.4xgrande hacia 3
+* c5d.9xlarge hacia 3
+* c5d.18xlarge hacia 3
+* c5n.9xlarge hacia 4
+* c5n.18xlarge hacia 4
+* m4.xlarge
+* m4.2xgrande
+* m4.4xgrande
+* m5.xlarge
+* m5,2xgrande
+* m5.4xgrande
+* m5.16xlarge
+* m5d.8xgrande hacia 3
+* m5d.12xlarge hacia 3
+* r4.xlarge
+* r4.2xgrande
+* r5.xlarge
+* r5,2xgrande
+* r5.8xlarge
+* r5.12xlarge hacia arriba 5
+* r5d.2xgrande hacia 3
+
+ a| 
+* c4.4xgrande
+* c4.8x grande
+* c5.9xlarge
+* c5.18xlarge
+* c5d.4xgrande hacia 3
+* c5d.9xlarge hacia 3
+* c5d.18xlarge hacia 3
+* c5n.9xlarge hacia 4
+* c5n.18xlarge hacia 4
+* m4.xlarge
+* m4.2xgrande
+* m4.4xgrande
+* m5.xlarge
+* m5,2xgrande
+* m5.4xgrande
+* m5.16xlarge
+* m5d.8xgrande hacia 3
+* m5d.12xlarge hacia 3
+* r4.xlarge
+* r4.2xgrande
+* r5.xlarge
+* r5,2xgrande
+* r5.8xlarge
+* r5.12xlarge hacia arriba 5
+* r5d.2xgrande hacia 3
+
+
+
+
+| Tipos de disco compatibles con esta versión 6 6+| SSD de uso general (gp3 y gp2), SSD de IOPS aprovisionados (io1) y HDD optimizados para el rendimiento (st1) hacia 7 
+|===
+Notas:
+
+. En algunas configuraciones, los límites de discos impiden que llegue al límite de capacidad usando solo discos. En estos casos, puede alcanzar el límite de capacidad mediante https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/concept-data-tiering.html["organización en niveles de los datos inactivos en el almacenamiento de objetos"^]. Para obtener más información acerca de los límites de disco, consulte link:reference-limits-aws.html["límites de almacenamiento"].
+. Al seleccionar un tipo de instancia de EC2, puede especificar si es una instancia compartida o una instancia dedicada.
+. Estos tipos de instancias incluyen almacenamiento NVMe local, que Cloud Volumes ONTAP utiliza como _Flash Cache_. Flash Cache acelera el acceso a los datos mediante el almacenamiento en caché inteligente en tiempo real de datos recientes de usuarios y metadatos de NetApp. Es efectivo para cargas de trabajo de lectura intensiva aleatoria, como bases de datos, correo electrónico y servicios de archivos. La compresión debe deshabilitarse en todos los volúmenes para aprovechar las mejoras de rendimiento de Flash Cache. https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/concept-flash-cache.html["Leer más"^].
+. c5n.9xLarge y c5n.18xLarge son compatibles a partir de 9.7 P5.
+. El tipo de instancia r5.12xLarge tiene una limitación conocida con compatibilidad. Si un nodo se reinicia de forma inesperada debido a una caída de alarma, es posible que el sistema no recopile los archivos de núcleo utilizados para solucionar los problemas y raíz provocando el problema. El cliente acepta los riesgos y los términos de soporte limitados y asume toda responsabilidad de soporte si se produce esta condición.
+. El rendimiento de escritura mejorado se habilita al usar unidades de estado sólido con Cloud Volumes ONTAP Standard, Premium y BYOL.
+. No se recomienda la organización en niveles de los datos para el almacenamiento de objetos cuando se utilizan unidades HDD optimizadas para el rendimiento (st1).
+. Para obtener información sobre compatibilidad con regiones de AWS, consulte https://cloud.netapp.com/cloud-volumes-global-regions["Regiones globales de Cloud Volumes"^].
+. Cloud Volumes ONTAP puede ejecutarse en una instancia de máquina virtual reservada o bajo demanda desde el proveedor de cloud. No se admiten soluciones que usan otros tipos de instancia de máquinas virtuales.
+
+
+
+
+== Tamaños de disco admitidos
+
+En AWS, un agregado puede contener hasta 6 discos con el mismo tamaño y tipo.
+
+[cols="3*"]
+|===
+| SSD de uso general (gp3 y gp2) | SSD de IOPS aprovisionado (io1) | HDD de rendimiento optimizado (st1) 
+
+
+ a| 
+* 100 GIB
+* 500 GIB
+* 1 TIB
+* 2 TIB
+* 4 TIB
+* 6 TIB
+* 8 TIB
+* 16 TIB
+
+ a| 
+* 100 GIB
+* 500 GIB
+* 1 TIB
+* 2 TIB
+* 4 TIB
+* 6 TIB
+* 8 TIB
+* 16 TIB
+
+ a| 
+* 500 GIB
+* 1 TIB
+* 2 TIB
+* 4 TIB
+* 6 TIB
+* 8 TIB
+* 16 TIB
+
+
+|===

@@ -1,0 +1,33 @@
+---
+sidebar: sidebar 
+permalink: reference-issues.html 
+keywords: issues, bugs, known issues 
+summary: Los problemas conocidos identifican problemas por los que el uso correcto de esta versión del producto puede resultar imposible. 
+---
+= Problemas conocidos
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Los problemas conocidos identifican problemas por los que el uso correcto de esta versión del producto puede resultar imposible.
+
+Es posible encontrar problemas conocidos del software ONTAP en el https://library.netapp.com/ecm/ecm_download_file/ECMLP2492508["Notas de la versión de ONTAP"^].
+
+
+
+== La detención de nodo puede fallar en parejas de alta disponibilidad con múltiples SVM
+
+Si planea detener o reiniciar un nodo Cloud Volumes ONTAP en una pareja de alta disponibilidad que tiene varias máquinas virtuales de almacenamiento (SVM), le recomendamos que premigre todas las interfaces lógicas (LIF) al nodo del partner antes de apagar el nodo.
+
+En el ejemplo siguiente se migran todas las LIF de datos del nodo (local) actual:
+
+`node1::> network interface migrate-all -node local`
+
+Esta acción expedita la transición de red al nodo asociado y evita problemas ocasionales conocidos con la detención del nodo.
+
+Si el nodo no se puede detener porque lleva demasiado tiempo migrar las LIF, un reintento del comando Reiniciar o detener el proceso debe hacerlo.

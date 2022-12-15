@@ -1,0 +1,82 @@
+---
+sidebar: sidebar 
+permalink: reference-configs-gcp.html 
+keywords: google, gcp, google cloud platform, explore, standard, premium, byol, paygo, disks, supported, capacity, machine types, sizes 
+summary: Google Cloud admite varias configuraciones de Cloud Volumes ONTAP. 
+---
+= Configuraciones compatibles en Google Cloud
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Google Cloud admite varias configuraciones de Cloud Volumes ONTAP.
+
+
+
+== Configuraciones admitidas por licencia
+
+Cloud Volumes ONTAP está disponible en Google Cloud Platform como un sistema de nodo único.
+
+[cols="h,d,d,d,d,d,d"]
+|===
+|  | Freemium | PAYGO Explora | Norma PAYGO | PAYGO Premium | Licencia basada en nodos | Licencia basada en capacidad 
+
+
+| Capacidad máxima del sistema (discos + almacenamiento de objetos) esta 1 | 500 GB | 2 TB HACIA ARRIBA 2 | 10 TB | 368 TB | 368 TB por licencia | 2 PIB 
+
+
+| Tipos de máquina compatibles con esta versión 3  a| 
+* personalizado: 4-16384
+* n1-estándar-8
+* n1-estándar-32
+
+| personalizado: 4-16384 | n1-estándar-8 | n1-estándar-32  a| 
+* personalizado: 4-16384
+* n1-estándar-8
+* n1-estándar-32
+
+ a| 
+* personalizado: 4-16384
+* n1-estándar-8
+* n1-estándar-32
+
+
+
+
+| Tipos de disco compatibles con esta versión 4 6+| Discos persistentes zonal (SSD y estándar) 
+|===
+Notas:
+
+. Los límites de disco pueden impedir que llegue al límite máximo de capacidad del sistema usando solo discos. Es posible alcanzar el límite de capacidad mediante https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/concept-data-tiering.html["organización en niveles de los datos inactivos en el almacenamiento de objetos"^].
++
+link:reference-limits-gcp.html["Más información acerca de los límites de discos en Google Cloud"].
+
+. Con PAYGO Explore, los datos en niveles en Google Cloud Storage no son compatibles.
+. El tipo de máquina personalizado-4-16384 ya no es compatible con los nuevos sistemas Cloud Volumes ONTAP.
++
+Si ya tiene un sistema en funcionamiento en este tipo de máquina, puede seguir utilizándolo, pero le recomendamos cambiar al tipo de máquina n2-standard-4.
+
+. El rendimiento de escritura mejorado se habilita al usar SSD.
+. Para obtener información sobre la compatibilidad con la región de Google Cloud Platform, consulte https://cloud.netapp.com/cloud-volumes-global-regions["Regiones globales de Cloud Volumes"^].
+. Cloud Volumes ONTAP puede ejecutarse en una instancia de máquina virtual reservada o bajo demanda desde el proveedor de cloud. No se admiten soluciones que usan otros tipos de instancia de máquinas virtuales.
+
+
+
+
+== Tamaños de disco admitidos
+
+En Google Cloud, un agregado puede contener hasta 6 discos con el mismo tipo y tamaño. Se admiten los siguientes tamaños de disco:
+
+* 100 GB
+* 500 GB
+* 1 TB
+* 2 TB
+* 4 TB
+* 8 TB
+* 16 TB
+
