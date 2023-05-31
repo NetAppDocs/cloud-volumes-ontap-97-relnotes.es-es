@@ -16,7 +16,7 @@ summary: Cloud Volumes ONTAP 9.7 incluye varias funciones y mejoras nuevas.
 [role="lead"]
 Cloud Volumes ONTAP 9.7 incluye varias funciones y mejoras nuevas.
 
-También se incluyen funciones y mejoras adicionales en las versiones más recientes de Cloud Manager. Consulte https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/whats-new.html["Notas de la versión de Cloud Manager"^] para obtener más detalles.
+También se incluyen funciones y mejoras adicionales en las versiones más recientes de Cloud Manager. Consulte https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/whats-new.html["Notas de la versión de Cloud Manager"^] para obtener más detalles.
 
 
 
@@ -32,9 +32,9 @@ Ahora puede comprar varias licencias para un sistema BYOL de Cloud Volumes ONTAP
 
 El número de licencias que se pueden comprar para un único sistema de nodo o par de alta disponibilidad es ilimitado.
 
-Tenga en cuenta que los límites de disco pueden impedir que llegue al límite de capacidad utilizando solo discos. Puede superar el límite de discos mediante https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/concept-data-tiering.html["organización en niveles de los datos inactivos en el almacenamiento de objetos"^]. Para obtener información sobre los límites de disco, consulte los límites de almacenamiento en estas notas de la versión.
+Tenga en cuenta que los límites de disco pueden impedir que llegue al límite de capacidad utilizando solo discos. Puede superar el límite de discos mediante https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/concept-data-tiering.html["organización en niveles de los datos inactivos en el almacenamiento de objetos"^]. Para obtener información sobre los límites de disco, consulte los límites de almacenamiento en estas notas de la versión.
 
-https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-manage-node-licenses.html["Aprenda a añadir licencias de sistema adicionales a Cloud Volumes ONTAP"^].
+https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/task-manage-node-licenses.html["Aprenda a añadir licencias de sistema adicionales a Cloud Volumes ONTAP"^].
 
 
 
@@ -173,7 +173,7 @@ Ahora Cloud Volumes ONTAP 9.7 admite varios tipos de instancias nuevas de EC2 co
 * r5.12xlarge hacia 2
 
 
-Estos tipos de instancias incluyen almacenamiento NVMe local, que Cloud Volumes ONTAP utiliza como _Flash Cache_. https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/concept-flash-cache.html["Leer más"^].
+Estos tipos de instancias incluyen almacenamiento NVMe local, que Cloud Volumes ONTAP utiliza como _Flash Cache_. https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/concept-flash-cache.html["Leer más"^].
 
 Este 2 el tipo de instancia r5.12xLarge tiene una limitación conocida con compatibilidad. Si un nodo se reinicia de forma inesperada debido a una caída de alarma, es posible que el sistema no recopile los archivos de núcleo utilizados para solucionar los problemas y raíz provocando el problema. El cliente acepta los riesgos y los términos de soporte limitados y asume toda responsabilidad de soporte si se produce esta condición.
 
@@ -237,7 +237,7 @@ Flash Cache acelera el acceso a los datos mediante el almacenamiento en caché i
 
 Implemente sistemas nuevos con este tipo de máquina virtual o modifique los sistemas existentes para utilizar este tipo de máquina virtual y aproveche automáticamente Flash Cache.
 
-https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/concept-flash-cache.html["Obtenga más información sobre cómo habilitar Flash Cache en Cloud Volumes ONTAP, incluida una limitación con la compresión de datos"^].
+https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/concept-flash-cache.html["Obtenga más información sobre cómo habilitar Flash Cache en Cloud Volumes ONTAP, incluida una limitación con la compresión de datos"^].
 
 
 
@@ -252,7 +252,7 @@ Esta versión aborda un problema con los reinicios de nodo Cloud Volumes ONTAP d
 * Las actualizaciones de Cloud Volumes ONTAP se deben completar desde Cloud Manager. No debe actualizar Cloud Volumes ONTAP con System Manager o CLI. Hacerlo puede afectar a la estabilidad del sistema.
 * Puede actualizar a Cloud Volumes ONTAP 9.7 desde la versión 9.6. Cloud Manager le solicitará que actualice sus sistemas Cloud Volumes ONTAP 9.6 existentes a la versión 9.7.
 +
-http://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-updating-ontap-cloud.html["Descubra cómo actualizar cuando Cloud Manager se lo notifica"^].
+http://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/task-updating-ontap-cloud.html["Descubra cómo actualizar cuando Cloud Manager se lo notifica"^].
 
 * La actualización de un único sistema de nodos desconecta el sistema hasta 25 minutos, durante los cuales se interrumpe la I/O.
 * Actualizar un par de alta disponibilidad no provoca interrupciones y la I/o se realiza de forma ininterrumpida. Durante este proceso de actualización no disruptiva, cada nodo se actualiza conjuntamente para seguir proporcionando I/o a los clientes.
